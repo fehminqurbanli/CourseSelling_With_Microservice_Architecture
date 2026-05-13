@@ -2,7 +2,7 @@
 using CourseSelling.Shared;
 using MassTransit;
 using MediatR;
-using MongoDB.Driver.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace CourseSelling.Catalog.Api.Features.Categories.Create

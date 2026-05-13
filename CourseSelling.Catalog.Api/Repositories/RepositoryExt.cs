@@ -1,27 +1,35 @@
 ﻿using CourseSelling.Catalog.Api.Options;
+using CourseSelling.Catalog.Api.Repositories;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace CourseSelling.Catalog.Api.Repositories
+public static class RepositoryExt
 {
-    public static class RepositoryExt
+    public static IServiceCollection AddDatabaseServiceExt(
+        this IServiceCollection services,
+        IConfiguration configuration)
     {
-        public static IServiceCollection AddDatabaseServiceExt(this IServiceCollection services)
+        services.AddSingleton<IMongoClient>(x =>
         {
-            services.AddSingleton<IMongoClient, MongoClient>(x =>
-            {
-                var options = x.GetRequiredService<MongoOption>();
-                return new MongoClient(options.ConnectionString);
-            });
+            var options = x
+                .GetRequiredService<IOptions<MongoOption>>()
+                .Value;
 
-            services.AddScoped(x =>
-            {
-                var mongoClient = x.GetRequiredService<IMongoClient>();
-                var options = x.GetRequiredService<MongoOption>();
+            return new MongoClient(options.ConnectionString);
+        });
 
-                return AppDbContext.Create(mongoClient.GetDatabase(options.DatabaseName));
-            });
+        services.AddScoped(x =>
+        {
+            var mongoClient = x.GetRequiredService<IMongoClient>();
 
-            return services;
-        }
+            var options = x
+                .GetRequiredService<IOptions<MongoOption>>()
+                .Value;
+
+            return AppDbContext.Create(
+                mongoClient.GetDatabase(options.DatabaseName));
+        });
+
+        return services;
     }
 }

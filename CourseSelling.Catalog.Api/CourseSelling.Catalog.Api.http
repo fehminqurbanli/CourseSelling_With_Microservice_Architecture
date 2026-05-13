@@ -1,6 +1,6 @@
 @CourseSelling.Catalog.Api_HostAddress = http://localhost:5178
 
-GET {{CourseSelling.Catalog.Api_HostAddress}}/weatherforecast/
+GET {{CourseSelling.Catalog.Api_HostAddress}}/api/categories
 Accept: application/json
 
 ###

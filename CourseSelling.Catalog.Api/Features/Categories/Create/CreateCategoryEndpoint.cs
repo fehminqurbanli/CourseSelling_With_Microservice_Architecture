@@ -1,4 +1,5 @@
 ﻿using CourseSelling.Shared.Extensions;
+using CourseSelling.Shared.Filters;
 using MediatR;
 
 namespace CourseSelling.Catalog.Api.Features.Categories.Create
@@ -12,7 +13,7 @@ namespace CourseSelling.Catalog.Api.Features.Categories.Create
                 var result = await mediator.Send(command);
                
                 return result.ToGenericResult();
-            });
+            }).AddEndpointFilter<ValidationFilter<CreateCategoryCommand>>();
 
             return group;
         }
