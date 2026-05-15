@@ -4,3 +4,6 @@ GET {{CourseSelling.Catalog.Api_HostAddress}}/api/categories
 Accept: application/json
 
 ###
+
+GET {{CourseSelling.Catalog.Api_HostAddress}}/api/categories/5
+Accept: application/json

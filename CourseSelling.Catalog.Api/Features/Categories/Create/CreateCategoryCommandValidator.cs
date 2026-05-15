@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace CourseSelling.Catalog.Api.Features.Categories.Create
+﻿namespace CourseSelling.Catalog.Api.Features.Categories.Create
 {
     public class CreateCategoryCommandValidator: AbstractValidator<CreateCategoryCommand>
     {

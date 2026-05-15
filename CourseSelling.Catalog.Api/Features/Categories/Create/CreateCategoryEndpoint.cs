@@ -1,8 +1,4 @@
-﻿using CourseSelling.Shared.Extensions;
-using CourseSelling.Shared.Filters;
-using MediatR;
-
-namespace CourseSelling.Catalog.Api.Features.Categories.Create
+﻿namespace CourseSelling.Catalog.Api.Features.Categories.Create
 {
     public static class CreateCategoryEndpoint
     {

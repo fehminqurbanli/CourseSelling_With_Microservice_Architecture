@@ -1,19 +1,14 @@
-﻿using AutoMapper;
-using CourseSelling.Catalog.Api.Features.Categories.DTOs;
-using CourseSelling.Catalog.Api.Repositories;
-using CourseSelling.Shared;
-using CourseSelling.Shared.Extensions;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using CourseSelling.Catalog.Api.Features.Categories.DTOs;
 
 namespace CourseSelling.Catalog.Api.Features.Categories.GetAll
 {
-    public class GetAllCategoryQuery: IRequest<ServiceResult<List<CategoryDTO>>>;
+    public class GetAllCategoryQuery: IRequestByServiceResult<List<CategoryDTO>>;
 
     public class GetAllCategoryHandler(AppDbContext dbContext, IMapper mapper) : 
         IRequestHandler<GetAllCategoryQuery, ServiceResult<List<CategoryDTO>>>
     {
-        public async Task<ServiceResult<List<CategoryDTO>>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResult<List<CategoryDTO>>> 
+            Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
         {
             var categories = await dbContext.Categories.ToListAsync(cancellationToken);
             var categoryDTOs = mapper.Map<List<CategoryDTO>>(categories);

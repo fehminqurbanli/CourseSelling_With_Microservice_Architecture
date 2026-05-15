@@ -1,11 +1,4 @@
-﻿using CourseSelling.Catalog.Api.Repositories;
-using CourseSelling.Shared;
-using MassTransit;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
-
-namespace CourseSelling.Catalog.Api.Features.Categories.Create
+﻿namespace CourseSelling.Catalog.Api.Features.Categories.Create
 {
     public class CreateCategoryCommandHandler(AppDbContext context)
         : IRequestHandler<CreateCategoryCommand, ServiceResult<CreateCategoryResponse>>

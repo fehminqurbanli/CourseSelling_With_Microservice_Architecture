@@ -1,0 +1,11 @@
+﻿global using CourseSelling.Catalog.Api.Repositories;
+global using CourseSelling.Shared;
+global using MassTransit;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using System.Net;
+global using FluentValidation;
+global using CourseSelling.Shared.Extensions;
+global using CourseSelling.Shared.Filters;
+global using AutoMapper;
+global using static CourseSelling.Shared.ServiceResult;

@@ -1,5 +1,6 @@
 ﻿using CourseSelling.Catalog.Api.Features.Categories.Create;
 using CourseSelling.Catalog.Api.Features.Categories.GetAll;
+using CourseSelling.Catalog.Api.Features.Categories.GetById;
 
 namespace CourseSelling.Catalog.Api.Features.Categories
 {
@@ -9,7 +10,8 @@ namespace CourseSelling.Catalog.Api.Features.Categories
         {
             app.MapGroup("api/categories")
                 .CreateCategoryGroupItemEndpoint()
-                .GetAllGroupItemEndpoint();
+                .GetAllGroupItemEndpoint()
+                .GetCategoryByIdGroupItemEndpoint();
         }
     }
 }

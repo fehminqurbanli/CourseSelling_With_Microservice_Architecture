@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using CourseSelling.Catalog.Api.Features.Categories.DTOs;
+﻿using CourseSelling.Catalog.Api.Features.Categories.DTOs;
 
 namespace CourseSelling.Catalog.Api.Features.Categories
 {
