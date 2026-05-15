@@ -27,7 +27,7 @@ namespace CourseSelling.Catalog.Api.Features.Categories.GetAll
                 var result = await mediator.Send(new GetAllCategoryQuery());
 
                 return result.ToGenericResult();
-            });
+            }).WithName("GetAllCategories");
 
             return group;
         }
