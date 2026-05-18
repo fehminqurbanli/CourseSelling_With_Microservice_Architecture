@@ -1,4 +1,5 @@
 ﻿using CourseSelling.Catalog.Api.Features.Courses.Create;
+using CourseSelling.Catalog.Api.Features.Courses.DTOs;
 
 namespace CourseSelling.Catalog.Api.Features.Courses
 {
@@ -6,7 +7,10 @@ namespace CourseSelling.Catalog.Api.Features.Courses
     {
         public CourseMapping()
         {
-            CreateMap<CreateCourseCommand, Course>().ReverseMap();
+            CreateMap<CreateCourseCommand, Course>();
+            CreateMap<Course, CourseDTO>();
+            CreateMap<Feature, FeatureDTO>();
+
         }
     }
 }

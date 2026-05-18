@@ -18,7 +18,7 @@ namespace CourseSelling.Catalog.Api.Features.Categories.GetAll
     }
 
 
-    public static class GetAllCategoryEndpoint
+    public static class GetAllCategoriesEndpoint
     {
         public static RouteGroupBuilder GetAllGroupItemEndpoint(this RouteGroupBuilder group)
         {
